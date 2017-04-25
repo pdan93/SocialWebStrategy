@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Malware OWL</title>
+    <link rel="stylesheet" href="scholary.css" />
+    <style>
+        pre
+        {
+            font-family: Courier, 'New Courier', monospace;
+            line-height: 1.2;
+            font-size: 12px;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body schema="http://schema.org/" xsd="http://www.w3.org/2001/XMLSchema sa="https://ns.science.ai/" >
+<article typeof="schema:ScholarlyArticle" resource="#">
+    <h1>Social Web Strategy</h1>
+    <section>
+        <ol>
+            <!-- The first author, Robin Berjon -->
+            <li property="schema:author" typeof="sa:ContributorRole">
+                <a property="schema:author" href="http://github.com/pdan93" typeof="schema:Person">
+                    <span property="schema:givenName">Daniel</span>
+                    <span property="schema:familyName">Popescu</span>
+                </a>
+                <a href="#scienceai" property="sa:roleAffiliation" resource="http://github.com/pdan93">a</a>
+                <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+                    <a property="schema:email" href="mailto:danielpopescu93@gmail.com" title="corresponding author">✉</a>
+                </sup>
+            </li>
+            <!-- The first author, Robin Berjon -->
+            <li property="schema:author" typeof="sa:ContributorRole">
+                <a property="schema:author" typeof="schema:Person">
+                    <span property="schema:givenName">Niculita</span>
+                    <span property="schema:familyName">Silvan</span>
+                </a>
+                <a href="#scienceai" property="sa:roleAffiliation">a</a>
+                <sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+                    <a property="schema:email" href="mailto:silvan.niculita@silvamed.ro" title="corresponding author">✉</a>
+                </sup>
+            </li>
+        </ol>
+        <!-- The affiliation list -->
+        <ol>
+            <li id="scienceai">
+                <a href="http://info.uaic.ro" typeof="schema:Corporation">
+                    <span property="schema:name">info.uaic.ro</span>
+                </a>
+            </li>
+        </ol>
+    </section>
+    <section typeof="sa:Abstract">
+        <h2>Introduction</h2>
+        <p>The proposed idea for the project is that by using the public Twitter feeds of a profile, and it's number of followers and other public data we can create a web strategy game. The strategy component is described in the wireframes/storyboards.</p>
+    </section>
+
+    <section typeof="sa:MaterialsAndMethods">
+        <h2>Materials And Methods</h2>
+        <section>
+            <h3>Wireframes</h3>
+        </section>
+        <section>
+            <h3>QOC</h3>
+        </section>
+        <section>
+            <h3>HTML5 Personas</h3>
+
+        </section>
+
+        <!--<p>A custom ontology is constructed for the project, using certain vocabulary elements from dbpedia, schema.org to define known concepts, the authors are defining a malware vocabulary that works in unison with the results from the file analysis. This will define the different categories of information as concepts so that when the connections between files are verrified entire areas of one can be matched.</p>
+        <p>Using online api's and tools (VirusTotal, malwr.com, MalwareViz, Mastiff) as many properties as possible are processed about the file, each of them being connected in the malware ontology. VirusTotal offers 5 main categories of information: Analysis, File detail, Relationships, Additional Information and Behavioural information. These categories will be defined as resources/concepts inside the ontology and are also in turn composed of subcategories. (For example File detail: Packers identified, PE header basic information, PE sections, Overlays, PE imports, Nr of PE resources by type, PE resources). These subcategories together with new types of properties will sometime be new ones. Therefore the goal is to have them dinamically created inside the ontology and dinamically inserted inside the whole graph.</p>-->
+    </section>
+    <section>
+        <h2>Challenges</h2>
+        <!--<section>
+            <h3>Mapping the ontology dinamically</h3>
+            <p>Because new properties on files may be found in any moment, and also for a more scalable project, the ontology needs to be easily editable instantly, with new triples being inserted in it when new vocabulary names or new file properties are found. Using SPARQL 1.1 will help in that aspect as it allows insertion of new data while the ontology is still active. The type of the property values is also an important aspect to be considered, and it should also be linked and defined for it. While both numerical and alphabetical values can be analized based on closeness to others, the way to do it is different and it may well end up being visible inside the application.</p>
+        </section>-->
+
+    </section>
+    <section>
+        <h2>Client Side application</h2>
+        <!--
+        <figure>
+            <img src="simmilar.png" />
+            <caption>Side-by-side view of 2 hashes, at the subcategory level (FileDetail/FileVersionInfo/)</caption>
+        </figure>-->
+    </section>
+
+
+
+    <section>
+        <h2>Implementation details</h2>
+
+    </section>
+
+
+
+    <section typeof="sa:Conclusion">
+        <h2>Conclusion</h2>
+        <!--<p>Through an ontology the connections between infected files are explored in depth, this provides valuable help and insight for malware analysis speeding up the process and finding new connections between malware samples.</p>-->
+    </section>
+</article>
+
+</body>
+</html>
