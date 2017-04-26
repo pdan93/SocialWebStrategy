@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71aba3db-6265-4b50-be11-00e8114d7b68" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personas.html" afterPath="$PROJECT_DIR$/personas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scholary.html" afterPath="$PROJECT_DIR$/scholary.html" />
     </list>
     <ignored path="SocialWebStrategy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,22 +35,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scholary.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scholary.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scholary.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="305">
+              <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#4;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="personas.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="personas.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/personas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-321">
-              <caret line="24" column="12" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="12" />
+            <state relative-caret-position="284">
+              <caret line="210" column="180" selection-start-line="210" selection-start-column="177" selection-end-line="210" selection-end-column="180" />
               <folding>
+                <element signature="n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#article#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#span#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -76,9 +84,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/scholary.css" />
-        <option value="$PROJECT_DIR$/scholary.html" />
         <option value="$PROJECT_DIR$/personas.css" />
         <option value="$PROJECT_DIR$/personas.html" />
+        <option value="$PROJECT_DIR$/scholary.html" />
       </list>
     </option>
   </component>
@@ -93,8 +101,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
+    <option name="y" value="5" />
     <option name="width" value="1934" />
-    <option name="height" value="1047" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -137,6 +146,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SocialWebStrategy" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SocialWebStrategy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SocialWebStrategy" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wireframe1" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -188,7 +211,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1493139659242</updated>
-      <workItem from="1493139660658" duration="5133000" />
+      <workItem from="1493139660658" duration="11601000" />
     </task>
     <task id="LOCAL-00001" summary="starting">
       <created>1493141810624</created>
@@ -201,10 +224,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5133000" />
+    <option name="totallyTimeSpent" value="11601000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
+    <frame x="-7" y="5" width="1934" height="1042" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -256,14 +279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scholary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/personas.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="849">
@@ -274,11 +289,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/personas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-321">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="12" />
+        <state relative-caret-position="284">
+          <caret line="210" column="180" selection-start-line="210" selection-start-column="177" selection-end-line="210" selection-end-column="180" />
           <folding>
+            <element signature="n#article#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#article#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#img#0;n#a#0;n#span#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scholary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#section#4;n#section#2;n#article#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
