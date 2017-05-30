@@ -117,6 +117,7 @@ html, body {
   transition: all 0.5s linear;
 }
 
+
 .player {
     position: absolute;
     width: 15%;
@@ -130,6 +131,17 @@ html, body {
     color: #0084b4;
 }
 
+.player .colorize {
+  display: block;
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  top: 0;
+  left: -20%;
+  background: rgb(0, 172, 237);
+  opacity: 0;
+  transition: all 0.5s linear;
+}
 
 .player.right {
   left: 82%;
@@ -223,9 +235,21 @@ html, body {
 }
 
 
+.player.right .colorize {
+  background: rgb(222, 44, 44);
+}
+.player.left .colorize {
+  background: rgb(0, 172, 237);
+}
+
 .hexagon.attack .colorize {
   opacity: 0.8;
 }
+
+.player.attack .colorize {
+  opacity: 0.8;
+}
+
 
 .hexagon.defend .colorize {
   opacity: 0.8;

@@ -46,6 +46,9 @@ export default class FirstScreen extends React.Component {
       case 'waiting_for_opponent':
         return <div id="first_screen">Waiting for Opponent</div>
         break;
+      case 'game_over':
+        return <div id="first_screen">{gameboard.gameWon}</div>
+        break;
       default:
         return <div id="first_screen">Connecting</div>
     }

@@ -97,14 +97,16 @@ export default function reducer(state={
       name: 'Daniel',
       playerImg: "https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10269434_942199432476034_6147352969057776589_n.jpg?oh=27dc22d84743428346340e3a1b7603da&oe=59AFFE16",
       totalLife: 5000,
-      life: 5000
+      life: 5000,
+      marked: ''
     },
     player2Data: {
       playerSide: 'right',
       name: 'Raluca',
       playerImg: "https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/10269434_942199432476034_6147352969057776589_n.jpg?oh=27dc22d84743428346340e3a1b7603da&oe=59AFFE16",
       totalLife: 8000,
-      life: 8000
+      life: 8000,
+      marked: ''
     },
     hexagons: defaulthexagons,
     currentPlayer: 1,
@@ -273,7 +275,8 @@ export default function reducer(state={
         if (action.payload.currentPlayer==1)
           return {...state,
             player1Data: {...state.player1Data,
-              life: action.payload.remainingLife
+              life: action.payload.remainingLife,
+              lifePerHex: action.payload.lifePerHex
             },
             hexagons: hexagons,
             gameStatus: 'waiting_opponent_selection'
@@ -281,7 +284,8 @@ export default function reducer(state={
           else
           return {...state,
             player2Data: {...state.player2Data,
-              life: action.payload.remainingLife
+              life: action.payload.remainingLife,
+              lifePerHex: action.payload.lifePerHex
             },
             hexagons: hexagons,
             gameStatus: 'waiting_opponent_selection'
@@ -320,6 +324,7 @@ export default function reducer(state={
             gameStatus: "game_phase"
           }
           }
+          console.log(11);
       }
 
       case "DIRECTLY_TO": {
@@ -350,6 +355,11 @@ export default function reducer(state={
             image: him.gameboard.hexagons[i].image,
             selected: him.gameboard.hexagons[i].selected,
           }
+          hexagons[21] = {...hexagons[21],
+            life: 180792,
+            player: 1,
+            selected: true
+          };
           player1Data.totalLife = me.followers_count;
           player1Data.life = me.gameboard.playerLife;
           player1Data.name = me.name;
@@ -412,12 +422,40 @@ export default function reducer(state={
         }
       }
 
+      case "ATTACK_SELECT_PLAYER": {
+        const hexagons = [...state.hexagons];
+        let playerSide = action.payload;
+
+        if (state.currentPlayer==1 && playerSide=='right')
+          {
+          if (checkSurroundings([15,16,17,18,20,21,22],state.currentPlayer,hexagons))
+            return {...state,
+              player2Data: {...state.player2Data,
+                marked: 'attack'
+              }
+            }
+          }
+
+        if (state.currentPlayer==2 && playerSide=='left')
+          {
+          if (checkSurroundings([0,1,2,3,5,6,7],state.currentPlayer,hexagons))
+            return {...state,
+              player1Data: {...state.player1Data,
+                marked: 'attack'
+              }
+            }
+          }
+
+        return {...state}
+      }
+
 
       case "FINISH_ATTACK": {
         const hexagons = [...state.hexagons]
         let ok_mine = 0;
         let ok_his = 0;
         let ok_neutre = 0;
+        let ok_direct_player = 0;
         let attacker = 0;
         let attacked = 0;
         for (let i=0; i<hexagons.length; i++)
@@ -436,8 +474,13 @@ export default function reducer(state={
                 ok_his = 1;
               }
             }
+        if (state.currentPlayer==1 && state.player2Data.marked=='attack')
+          ok_direct_player = 1;
+        if (state.currentPlayer==2 && state.player1Data.marked=='attack')
+          ok_direct_player = 1;
 
-        if (ok_mine && (ok_his || ok_neutre))
+
+        if (ok_mine && (ok_his || ok_neutre || ok_direct_player))
           {
           let playerLife = 0;
           let lifePerHex = 0;
@@ -449,7 +492,7 @@ export default function reducer(state={
             playerLife = state.player2Data.life;
             lifePerHex = state.player2Data.lifePerHex;
             }
-
+          let directAttack = ok_direct_player;
           let message = {
             type: "attacking",
             data: {
@@ -458,9 +501,11 @@ export default function reducer(state={
               attacked: attacked,
               lifePerHex: lifePerHex,
               playerLife: playerLife,
-              hexagons: state.hexagons
+              hexagons: state.hexagons,
+              directAttack: directAttack
             }
           }
+          console.log(11);
 
           state.webSocket.send(JSON.stringify(message))
 
@@ -548,24 +593,55 @@ export default function reducer(state={
         const hexagons = [...state.hexagons]
         hexagons[step.attacker] = step.hexagons[step.attacker]
         hexagons[step.attacked] = step.hexagons[step.attacked]
-
-        if (step.player==1)
-          return {...state,
-            hexagons: hexagons,
-            player1Data: {...state.player1Data,
-              life: step.playerLife
-            },
-            gameStatus: "attack_step_1",
-            step_2: action.payload["STEP_2"]
-          }
-          else
-          return {...state,
-            hexagons: hexagons,
-            player2Data: {...state.player2Data,
-              life: step.playerLife
-            },
-            gameStatus: "attack_step_1",
-            step_2: action.payload["STEP_2"]
+        if (step.directAttack==1) {
+          if (step.player==1)
+            return {...state,
+              hexagons: hexagons,
+              player1Data: {...state.player1Data,
+                life: step.playerLife,
+                marked: ''
+              },
+              player2Data: {...state.player2Data,
+                life: step.otherPlayerLife,
+                marked: ''
+              },
+              gameStatus: "attack_step_1",
+              step_2: action.payload["STEP_2"]
+            }
+            else
+            return {...state,
+              hexagons: hexagons,
+              player2Data: {...state.player2Data,
+                life: step.playerLife,
+                marked: ''
+              },
+              player1Data: {...state.player1Data,
+                life: step.otherPlayerLife,
+                marked: ''
+              },
+              gameStatus: "attack_step_1",
+              step_2: action.payload["STEP_2"]
+            }
+        }
+        else {
+          if (step.player==1)
+            return {...state,
+              hexagons: hexagons,
+              player1Data: {...state.player1Data,
+                life: step.playerLife
+              },
+              gameStatus: "attack_step_1",
+              step_2: action.payload["STEP_2"]
+            }
+            else
+            return {...state,
+              hexagons: hexagons,
+              player2Data: {...state.player2Data,
+                life: step.playerLife
+              },
+              gameStatus: "attack_step_1",
+              step_2: action.payload["STEP_2"]
+            }
           }
       }
 
@@ -575,29 +651,67 @@ export default function reducer(state={
         hexagons[step.attacker] = step.hexagons[step.attacker]
         hexagons[step.attacked] = step.hexagons[step.attacked]
 
-        if (step.player==1)
-          return {...state,
-            hexagons: hexagons,
-            player1Data: {...state.player1Data,
-              life: step.playerLife
-            },
-            gameStatus: "game_phase",
-            step_2: {}
-          }
-          else
-          return {...state,
-            hexagons: hexagons,
-            player2Data: {...state.player2Data,
-              life: step.playerLife
-            },
-            gameStatus: "game_phase",
-            step_2: {}
+        if (state.gameStatus=='game_over')
+          return {...state}
+
+        if (step.directAttack==1) {
+          if (step.player==1)
+            return {...state,
+              hexagons: hexagons,
+              player1Data: {...state.player1Data,
+                life: step.playerLife,
+                marked: ''
+              },
+              player2Data: {...state.player2Data,
+                life: step.otherPlayerLife,
+                marked: ''
+              },
+              gameStatus: "game_phase",
+              step_2: {}
+            }
+            else
+            return {...state,
+              hexagons: hexagons,
+              player2Data: {...state.player2Data,
+                life: step.playerLife,
+                marked: ''
+              },
+              player1Data: {...state.player1Data,
+                life: step.otherPlayerLife,
+                marked: ''
+              },
+              gameStatus: "game_phase",
+              step_2: {}
+            }
+        }
+        else {
+          if (step.player==1)
+            return {...state,
+              hexagons: hexagons,
+              player1Data: {...state.player1Data,
+                life: step.playerLife
+              },
+              gameStatus: "game_phase",
+              step_2: {}
+            }
+            else
+            return {...state,
+              hexagons: hexagons,
+              player2Data: {...state.player2Data,
+                life: step.playerLife
+              },
+              gameStatus: "game_phase",
+              step_2: {}
+            }
           }
       }
 
       case "1_STEP_ATTACK_DEFENSE": {
         const data = action.payload;
         const hexagons = [...state.hexagons];
+
+        if (state.gameStatus=='game_over')
+          return {...state}
 
         hexagons[data.attacker] = data.hexagons[data.attacker];
         for (let i=0; i<data.defenders.length; i++)
@@ -640,7 +754,13 @@ export default function reducer(state={
           },
           gameStatus: "game_phase"
         }
+      }
 
+      case "GAME_OVER": {
+        return {...state,
+          gameStatus: 'game_over',
+          gameWon: action.payload
+        }
       }
 
 

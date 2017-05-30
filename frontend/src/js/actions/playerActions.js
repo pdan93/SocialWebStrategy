@@ -8,6 +8,13 @@ export function clickLife() {
   }
 }
 
+export function clickPlayer(player) {
+  return {
+    type: 'ATTACK_SELECT_PLAYER',
+    payload: player,
+  }
+}
+
 
 export function start() {
   return {

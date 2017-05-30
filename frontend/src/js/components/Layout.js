@@ -11,7 +11,7 @@ import FirstScreen from "./FirstScreen"
 })
 export default class Layout extends React.Component {
     render() {
-    if (this.props.gameboard.gameStatus=='zero' || this.props.gameboard.gameStatus=='select_twitter_user' || this.props.gameboard.gameStatus=='waiting' || this.props.gameboard.gameStatus=='waiting_for_opponent')
+    if (this.props.gameboard.gameStatus=='zero' || this.props.gameboard.gameStatus=='select_twitter_user' || this.props.gameboard.gameStatus=='waiting' || this.props.gameboard.gameStatus=='waiting_for_opponent' || this.props.gameboard.gameStatus=='game_over')
       return <FirstScreen />
       else
       return <Gameboard />

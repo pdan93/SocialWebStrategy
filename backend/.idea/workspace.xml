@@ -18,8 +18,8 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="203" column="55" lean-forward="false" selection-start-line="203" selection-start-column="55" selection-end-line="203" selection-end-column="55" />
+            <state relative-caret-position="677">
+              <caret line="938" column="79" lean-forward="false" selection-start-line="938" selection-start-column="79" selection-end-line="938" selection-end-column="79" />
               <folding>
                 <element signature="e#0#66#0" expanded="true" />
               </folding>
@@ -43,6 +43,8 @@
       <find>my</find>
       <find>sendMessage</find>
       <find>hexas2</find>
+      <find>pprin</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>False</replace>
@@ -291,8 +293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="203" column="55" lean-forward="false" selection-start-line="203" selection-start-column="55" selection-end-line="203" selection-end-column="55" />
+        <state relative-caret-position="677">
+          <caret line="938" column="79" lean-forward="false" selection-start-line="938" selection-start-column="79" selection-end-line="938" selection-end-column="79" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
           </folding>

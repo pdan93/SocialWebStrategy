@@ -59,8 +59,8 @@ export default class Gameboard extends React.Component {
     return <div id="gameboard" class="gameboard" style={GameStyle}>
       {hexList}
       <PlayerInteraction data={gameboard} />
-      <Player player={gameboard.player1Data} currentPlayer={gameboard.currentPlayer} />
-      <Player player={gameboard.player2Data} currentPlayer={gameboard.currentPlayer} />
+      <Player player={gameboard.player1Data} gameStatus={gameboard.gameStatus} currentPlayer={gameboard.currentPlayer} />
+      <Player player={gameboard.player2Data} gameStatus={gameboard.gameStatus} currentPlayer={gameboard.currentPlayer} />
       {additional}
     </div>
   }
