@@ -1,0 +1,286 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100%;
+  float: left;
+  margin: 0;
+  height: 100%;
+}
+
+.gameboard {
+  /*width: 1000px;
+  height: 606.2px;*/
+  float: left;
+  margin: 0;
+  border: 0;
+  position: relative;
+  user-select: none;
+}
+
+.player-side {
+  width: 50%;
+  height: 100%;
+  float: left;
+  border: 1px solid #000;
+}
+
+.hexagon {
+    float: left;
+    width: 10%;
+    height: 14.3%;
+    width: 9%;
+    height: 12.8%;
+    margin: 0.5% 0 0 0.7%;
+    position: absolute;
+}
+
+.hexagon > div {
+  position:relative;
+  list-style-type:none;
+  width: 86.6000017%;
+  padding-bottom: 100%;
+  float:left;
+  overflow:hidden;
+  visibility:hidden;
+  margin: -6% 0 0 7%;
+
+  -webkit-transform: rotate(-60deg) skewY(30deg);
+  -ms-transform: rotate(-60deg) skewY(30deg);
+  transform: rotate(-90deg) skewY(30deg);
+}
+
+
+.hexagon > div *{
+  position:absolute;
+  visibility:visible;
+}
+
+.hexagon > div > div{
+  width:100%;
+  height:100%;
+  text-align:center;
+  color:#fff;
+  overflow:hidden;
+
+  -webkit-transform: skewY(-30deg) rotate(60deg);
+  -ms-transform: skewY(-30deg) rotate(60deg);
+  transform: skewY(-30deg) rotate(60deg);
+
+	-webkit-backface-visibility:hidden;
+}
+
+
+.hexagon > div > div > div{
+  width:100%;
+  height:100%;
+
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+
+  cursor: pointer;
+}
+
+.hexagon img{
+  left:-100%; right:-100%;
+  width: auto; height:100%;
+  margin:0 auto;
+  transform: scale(1.2);
+  -webkit-filter: grayscale(100%) blur(3px); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%) blur(3px);
+  transition: all 0.5s linear;
+}
+
+.hexagon img:hover {
+  transform: scale(1);
+}
+
+.hexagon .colorize {
+  display: block;
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  top: 0;
+  left: -20%;
+  background: rgb(0, 172, 237);
+  opacity: 0;
+  transition: all 0.5s linear;
+}
+
+.player {
+    position: absolute;
+    width: 15%;
+    height: 22%;
+    left: 3%;
+    top: 39%;
+    border: 5px solid #FFF;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #CCC;
+    overflow: visible;
+    color: #0084b4;
+}
+
+
+.player.right {
+  left: 82%;
+  border-color: #FFF;
+  color: #b40400;
+}
+
+
+.player.current_player {
+  border-color: #ccc;
+}
+
+.player .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.player .img img {
+  width: 100%;
+}
+
+.player .name {
+    margin: -30px 0 0 0;
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-family: sans-serif;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    font-weight: 700;
+    color: #717171;
+}
+
+.player .life {
+    width: 100%;
+    position: absolute;
+    bottom: -25px;
+    height: 10%;
+    border: 2px solid #00aced;
+    border-radius: 3px;
+}
+
+.player .life span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    text-align: center;
+    top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.player.right .life {
+  border-color: #ed2700;
+}
+
+.player .life .life_line {
+    width: 100%;
+    height: 100%;
+    transition: all 1s linear;
+    background: #c0deed;
+}
+
+.player.right .life_line {
+    background: #edc0c0;
+}
+
+
+.hexagon.selected img {
+  filter: grayscale(100%) blur(0px) brightness(1.3);/*url(#color_Blue);*/
+}
+
+
+.hexagon.active .colorize {
+  opacity: 0.4;
+}
+
+.hexagon .colorize {
+  background: rgb(142, 166, 175);
+}
+
+.hexagon.player-2 .colorize {
+  background: rgb(222, 44, 44);
+}
+.hexagon.player-1 .colorize {
+  background: rgb(0, 172, 237);
+}
+
+
+.hexagon.attack .colorize {
+  opacity: 0.8;
+}
+
+.hexagon.defend .colorize {
+  opacity: 0.8;
+}
+
+.player_interaction {
+    width: 10%;
+    position: absolute;
+    left: 45%;
+    top: 46%;
+    text-align: center;
+}
+
+.player_interaction button {
+    width: 100%;
+    font-size: 20px;
+}
+
+#connectionLine {
+    transform-origin: 0 100%;
+    height: 3px; /* Line width of 3 */
+    background: #000; /* Black fill */
+    position: absolute;
+}
+
+#first_screen {
+    width: 30%;
+    float: left;
+    margin: 20% 0 0 35%;
+    text-align: center;
+}
+
+#first_screen input {
+    width: 70%;
+    float: left;
+    margin: 10px 15%;
+    padding: 5px 10px;
+}
+
+#first_screen button {
+    cursor: pointer;
+}
+
+.hexagon .hex_life {
+  display: block;
+  width: 100%;
+  text-align: center;
+  float: left;
+  margin: 0;
+  position: absolute;
+  top: 37%;
+  left: 0;
+  color: #FFF;
+  opacity: 1;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px #222;
+}
